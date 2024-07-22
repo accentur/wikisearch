@@ -1,4 +1,4 @@
-<table class="table is-striped">
+<table *ngIf="pages.length" class="table is-striped">
 
     <thead>
 
@@ -13,9 +13,14 @@
     <tbody>
      <tr *ngFor="let res of pages">
 
-        <td>{{res.title}}</td>
+        <td >
+            <a target="_blank" [href]=" 'https://en.wikipedia.org/?curid='+res.pageid ">
+            <td>{{res.title}}</td>
+
+            </a>
         <td>{{res.wordcount}}</td>
-        <td>{{res.snippet}}</td>
+        <!-- <td>{{res.snippet}}</td> -->
+        <td [innerHTML]="res.snippet"></td>
 
      </tr>
     
